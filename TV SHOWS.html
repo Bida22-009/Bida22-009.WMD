@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>WELCOME TO WARNER BROS</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<style>
+	.imgs{
+		border:1px solid #ddd;
+		border-radius: 4px;
+		padding: 5px;
+		width: 150px;
+
+	}
+	.imgs:hover{
+		box-shadow: 0 0 2px 1px rgba(0,140,186,0.5);
+
+	}
+	.imgcont{
+		padding: 5px;
+		margin-right: 10px;
+		margin-top: 20px;
+		margin-left: 30px; 
+		margin-bottom: 20px;
+	}
+
+</style>
+</head>
+<body>
+
+   <!-- the div class names will help in css to call and edit the html code blocks -->
+	<div class="container" style="height:100vh">
+		 <div class="navbar">
+		 	<h2>WARNER BROS</h2>
+		  <nav>
+		    <ul class="menuItems">
+		      
+		      <li><a href='MOVIES.html' data-item='About'>MOVIES</a></li>
+		      <li><a href='TV SHOWS.html' data-item='Projects'>TV SHOWS</a></li>
+		      <li><a href='GAMES AND APPS.html' data-item='Blog'>GAMES AND APPS</a></li>
+		      <li><a href='COLLECTIONS.html' data-item='Contact'>COLLECTIONS</a></li>
+                      <li><a href='FEEDBACK.html' data-item='Contact'>FEEDBACK</a></li>
+		    </ul>
+		  </nav>
+
+		 </div><br><br>
+		 <h2 style="text-align: center;"></h2><br>
+		 <p style="text-align: center;">Find the latest TV SHOWS coming soon to theaters. Get the latest release dates, watch trailers, see photos and and everything.</p>
+		 <div class="img-slider">
+      <div class="slide active">
+         <img src="images/thequeen.jpeg" alt="" style="width:30%;">
+        <div class="info">
+          <h3 style="color: #fff;">THE QUEEN</h3>
+          <p style="color: #fff;">When the husband of a successful business woman and loving wife discovers her dreadful secrets, she is forced into a corner, with no choice but to silence.Release date:22 May 2022</p>
+        </div>
+      </div>
+      <div class="slide">
+         <img src="images/KingsGabs.jpeg" alt="" style="width:30%;" align="right">
+        <div class="info">
+          <h3 style="color: #fff;">KINGS OF GABORONE</h3>
+          <p style="color: #fff;">The Masire brothers rule Gaborone's criminal underworld but a supernatural family curse and a tangled web of betrayal threaten to destroy them.Release date:28 May 2020 </p>
+        </div>
+      </div>
+      <div class="slide">
+       <img src="images/theempire.jpeg" alt="" style="width:25%;">
+        <div class="info">
+          <h3 style="color: #fff;">THE EMPIRE</h3>
+          <p style="color: #fff;">Prince Amleth is on the verge of becoming a man when his father is brutally murdered by his uncle, who kidnaps the boy's mother. Two decades later, Amleth is now a Viking who raids Slavic villages. He soon meets a seeress who reminds him of his vow -- save his mother, kill his uncle, avenge his father.Release date:22 May 2023 </p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="images/moon.jpeg" alt="" style="width:30%;">
+        <div class="info">
+          <h3 style="color: #fff;">MOON AND JO</h3>
+          <p style="color: #fff;"> The world stands on the brink of annihilation when a mysterious force knocks the moon from its orbit and sends it hurtling toward a collision course with Earth. With only weeks before impact, NASA executive Jocinda "Jo" Fowler teams up with a man from her past and a conspiracy theorist for an impossible mission into space to save humanity.Release date:07 July 2021</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="images/BB.jpeg" alt="" style="width:30%;">
+        <div class="info">
+          <h3 style="color: #fff;">BLUE BEETLE</h3>
+          <p style="color: #fff;">Ex-convict and aspiring lawyer Hollis Morgan becomes the subject of police scrutiny when a member of her book club is found murdered. Refusing to get stuck with another bad rap, Hollis sets out to find the killer after a second book-inspired murder.</p>
+        </div>
+      </div>
+      <div class="navigation">
+        <div class="btn active"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+    var slides = document.querySelectorAll('.slide');
+    var btns = document.querySelectorAll('.btn');
+    let currentSlide = 1;
+
+    // Javascript for image slider manual navigation
+    var manualNav = function(manual){
+      slides.forEach((slide) => {
+        slide.classList.remove('active');
+
+        btns.forEach((btn) => {
+          btn.classList.remove('active');
+        });
+      });
+
+      slides[manual].classList.add('active');
+      btns[manual].classList.add('active');
+    }
+
+    btns.forEach((btn, i) => {
+      btn.addEventListener("click", () => {
+        manualNav(i);
+        currentSlide = i;
+      });
+    });
+
+    // Javascript for image slider autoplay navigation
+    var repeat = function(activeClass){
+      let active = document.getElementsByClassName('active');
+      let i = 1;
+
+      var repeater = () => {
+        setTimeout(function(){
+          [...active].forEach((activeSlide) => {
+            activeSlide.classList.remove('active');
+          });
+
+        slides[i].classList.add('active');
+        btns[i].classList.add('active');
+        i++;
+
+        if(slides.length == i){
+          i = 0;
+        }
+        if(i >= slides.length){
+          return;
+        }
+        repeater();
+      }, 10000);
+      }
+      repeater();
+    }
+    repeat();
+    </script>
+
+ <footer>
+ 	<p>Copyright &copy;Chakalisa</p>
+ </footer>
+
+
+
+</body>
+</html>
